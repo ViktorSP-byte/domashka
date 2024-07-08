@@ -1,7 +1,7 @@
-from src.generators import transactions, filter_by_currency, transaction_descriptions, card_number_generator
+from src.generators import filter_by_currency, transaction_descriptions, card_number_generator
 
-def test_filter_by_currency() -> None:
-    usd_transactions = filter_by_currency(transactions, "USD")
+def test_filter_by_currency(transactions_data) -> None:
+    usd_transactions = filter_by_currency(transactions_data, "USD")
     assert next(usd_transactions) == {'id': 939719570,
                                'state': 'EXECUTED',
                                'date': '2018-06-30T02:08:58.425572',
@@ -28,7 +28,7 @@ def test_filter_by_currency() -> None:
                                'description': 'Перевод со счета на счет',
                                'from': 'Счет 19708645243227258542',
                                'to': 'Счет 75651667383060284188'}
-    rub_transactions = filter_by_currency(transactions, "RUB")
+    rub_transactions = filter_by_currency(transactions_data, "RUB")
     assert next(rub_transactions) == {"id": 873106923,
                                       "state": "EXECUTED",
                                       "date": "2019-03-23T01:09:46.296404",
@@ -60,21 +60,24 @@ def test_filter_by_currency() -> None:
                                       }
 
 
-def test_filter_by_currency_() -> None:
-    assert filter_by_currency(transactions, "")
+def test_filter_by_currency_empty_currency(transactions_data) -> None:
+    assert list(filter_by_currency(transactions_data, "")) == []
 
 
-def test_filter_by_currency__() -> None:
-    assert filter_by_currency(transactions, "ERI")
+def test_filter_by_currency_not_existed_currency(transactions_data) -> None:
+    assert list(filter_by_currency(transactions_data, "ERI")) == []
 
 
-def test_transaction_description():
-    trans = transaction_descriptions(transactions)
-    assert next(trans) == "Перевод организации"
-    assert next(trans) == "Перевод со счета на счет"
-    assert next(trans) == "Перевод со счета на счет"
-    assert next(trans) == "Перевод с карты на карту"
-    assert next(trans) == "Перевод организации"
+def test_transaction_description(transactions_data):
+    expected_result = [
+        "Перевод организации",
+        "Перевод со счета на счет",
+        "Перевод со счета на счет",
+        "Перевод с карты на карту",
+        "Перевод организации"
+    ]
+    trans = transaction_descriptions(transactions_data)
+    assert list(trans) == expected_result
 
 
 def test_card_number_generator():
