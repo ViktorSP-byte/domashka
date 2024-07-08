@@ -5,22 +5,15 @@ def mask_account_card(account_info: str) -> str:
     """Функция, возвращающая маску карты или счета"""
     if account_info[:4] == "Счет":
         account_number = get_mask_account(account_info[5:])
-        mask_account = f"{account_info[:4]} {account_number}"
+        mask_account = f"{account_info[:4]}{account_number}"
         return mask_account
     else:
         mask_card_number = get_mask_card_number(account_info[-16:])
-        mask_card = f"{account_info[:-16]} {mask_card_number}"
+        mask_card = f"{account_info[:-16]}{mask_card_number}"
         return mask_card
-
-
-print(mask_account_card("Maestro 1596837868705199"))
 
 
 def get_data(data: str) -> str:
     """Функция, меняющая формат даты"""
     result = data[8:10] + "." + data[5:7] + "." + data[:4]
     return result
-
-
-data = "2018-07-11T02:26:18.671407"
-print(get_data(data))
