@@ -14,6 +14,7 @@ def test_info_state() -> str:
 def test_info_state_1() -> list[dict[Any, Any]]:
     return data
 
+
 @pytest.fixture
 def transactions_data():
     return [

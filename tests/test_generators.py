@@ -1,5 +1,6 @@
 from src.generators import filter_by_currency, transaction_descriptions, card_number_generator
 
+
 def test_filter_by_currency(transactions_data) -> None:
     usd_transactions = filter_by_currency(transactions_data, "USD")
     assert next(usd_transactions) == {'id': 939719570,
