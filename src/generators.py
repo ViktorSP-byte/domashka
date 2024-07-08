@@ -1,3 +1,4 @@
+from typing import Any, List
 transactions = (
     [
         {
@@ -79,10 +80,10 @@ transactions = (
 )
 
 
-def filter_by_currency(transactions, currency):
+def filter_by_currency(transactions: List, currency: str) -> Any:
     """"Функция принимает на вход список словарей и возвращает id операции"""
     for key in transactions:
-        if key["operationAmount"]["currency"]["name"] == currency:
+        if key["operationAmount"]["currency"]["code"] == currency:
             yield key
 
 
@@ -91,7 +92,7 @@ for _ in range(2):
     print(next(usd_transactions))
 
 
-def transaction_descriptions(transactions):
+def transaction_descriptions(transactions: List) -> List:
     """Функция-генератор, возвращающая описание по каждой операции"""
     for transaction in transactions:
         yield transaction["description"]
@@ -102,7 +103,7 @@ for _ in range(5):
     print(next(descriptions))
 
 
-def card_number_generator(x, y):
+def card_number_generator(x: int, y: int) -> int:
     """Функция генерации номеров карт"""
     for num in range(x, y + 1):
         num_str = f"{num:016}"
