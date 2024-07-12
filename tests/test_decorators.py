@@ -2,6 +2,8 @@ from src.decorators import log
 
 def test_decorators(capsys):
     @log
-    captured = capsys.readouterr()
-    assert captured.out == ''
-
+    def divider(x, y):
+         return x / y
+    divider(4, 2)
+captured = capsys.readouterr()
+assert '2' in captured.out

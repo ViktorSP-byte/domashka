@@ -24,8 +24,8 @@ def log(filename: Any = None) -> Callable:
     return decorator
 
 
-@log(filename="mylog.txt")
-def my_function(x, y):
-    return x + y
-
-print(my_function(1, 2))
+# @log(filename="mylog.txt")
+# def my_function(x, y):
+#     return x + y
+#
+# print(my_function(1, 2))
