@@ -6,4 +6,4 @@ def test_decorators(capsys):
          return x / y
     divider(4, 2)
 captured = capsys.readouterr()
-assert '2' in captured.ou
+assert '2' in captured.out
