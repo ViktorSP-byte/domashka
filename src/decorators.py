@@ -7,25 +7,27 @@ def log(filename: Any = None) -> Callable:
         @wraps(func)
         def inner(*args, **kwargs) -> Any:
             try:
-                func(*args, **kwargs)
+                result = func(*args, **kwargs)
             except Exception as e:
-                f'\n{func.__name__}: {e}. Inputs: {args}, {kwargs}'
+                output_massage = f'{func.__name__} error: {e}. Inputs: {args}, {kwargs}'
                 raise e
             else:
-                output_massage = f'\n{func.__name__} ok'
-                return output_massage
+                output_massage = f'{func.__name__} ok'
+                return result
             finally:
                 if filename:
                     with open(filename, "a", encoding="utf-8") as file:
-                        file.write(f'\n{func.__name__} ok')
+                        file.write(f'{output_massage}\n')
                 else:
-                    print(f'\n{func.__name__} ok')
+                    print(output_massage)
         return inner
     return decorator
 
+if __name__ == '__main__':
+    @log('log.txt')
+    def my_function(x, y):
+        return x / y
 
-# @log(filename="mylog.txt")
-# def my_function(x, y):
-#     return x + y
-#
-# print(my_function(1, 2))
+    print(my_function(1, 2))
+    print(my_function(1, 2))
+    print(my_function(1, 0))
