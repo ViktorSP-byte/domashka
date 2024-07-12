@@ -1,0 +1,16 @@
+
+my_function okmy_function: e Inputs: (-6, 3), {}
+my_function: e Inputs: (-6, 3), {}
+my_function: e Inputs: (6, 3), {}
+my_function: e Inputs: (6, 3), {}my_function ok
+my_function ok
+my_function ok
+my_function ok
+my_function okmy_function okmy_function okmy_function okmy_function ok
+my_function ok
+my_function ok
+my_function ok
+my_function ok
+my_function ok
+my_function ok
+my_function ok
