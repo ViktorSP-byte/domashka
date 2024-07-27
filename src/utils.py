@@ -8,7 +8,7 @@ def get_transactions_dictionary(file_json: str) -> list:
                 transactions = json.load(f)
                 if transactions == []:
                     return []
-            except UnicodeDecodeError:
+            except json.JSONDecodeError:
                 return []
     except FileNotFoundError:
         return []
