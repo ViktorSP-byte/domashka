@@ -15,6 +15,7 @@ def get_transactions_dictionary(file_json: str) -> list:
         return []
     return transactions
 
+
 if __name__ == '__main__':
     file_json = "../data/operations.json"
     print(get_transactions_dictionary(file_json))

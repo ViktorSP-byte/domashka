@@ -23,7 +23,8 @@ def log(filename: Any = None) -> Callable:
         return inner
     return decorator
 
-if __name__ == '__main__':  #pragma: no cover
+if __name__ == '__main__':
+
     @log()
     def my_function(x, y):
         return x / y

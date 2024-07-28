@@ -3,6 +3,7 @@ import os
 
 from src.decorators import log
 
+
 def test_log_to_print_success(capsys):
     @log()
     def divider(x, y):
@@ -12,6 +13,7 @@ def test_log_to_print_success(capsys):
 
     captured = capsys.readouterr()
     assert 'divider ok' in captured.out
+
 
 def test_log_to_print_error_zero_division(capsys):
     @log()
@@ -28,6 +30,7 @@ def test_log_to_print_error_zero_division(capsys):
 def test_log_to_log_file_success():
     CURRENT_PATH = os.path.dirname(__file__)
     LOG_FILE = os.path.join(CURRENT_PATH, 'test_log.txt')
+
     @log(LOG_FILE)
     def divider(x, y):
          return x / y
