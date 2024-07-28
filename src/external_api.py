@@ -1,8 +1,9 @@
-import requests
 import os
-from src.utils import get_transactions_dictionary
 
+import requests
 from dotenv import load_dotenv
+
+from src.utils import get_transactions_dictionary
 
 load_dotenv("C:/Users/RobotComp.ru/PycharmProjects/course2_homeworks/.env")
 
