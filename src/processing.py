@@ -19,3 +19,7 @@ def sort_by_date(data: list[dict], reverse: bool = True) -> list[dict]:
     """Фунуия сортировки операций по дате"""
     sorted_data = sorted(data, key=lambda data: data["date"], reverse=reverse)
     return sorted_data
+
+
+# if __name__ == "__main__":
+#     print(sort_by_date(data))

@@ -1,5 +1,5 @@
 from src.masks import get_mask_account, get_mask_card_number
-
+from processing import data
 
 def mask_account_card(account_info: str) -> str:
     """Функция, возвращающая маску карты или счета"""
@@ -13,7 +13,20 @@ def mask_account_card(account_info: str) -> str:
         return mask_card
 
 
-def get_data(data: str) -> str:
+def filter_alpha_data(data_client: str):
+    """функция возвращает только название карты или счета"""
+    alpha_data = ""
+
+    for el in list(data_client):
+        if el.isalpha() or el == " ":
+            alpha_data += el
+
+    return alpha_data
+
+
+def get_data(data: list) -> list:
     """Функция, меняющая формат даты"""
-    result = data[8:10] + "." + data[5:7] + "." + data[:4]
+    result = data[8: 10] + "." + data[5:7] + "." + data[0:4]
     return result
+
+
