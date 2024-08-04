@@ -5,7 +5,7 @@ from processing import filter_by_state, sort_by_date
 from read_transactions_csv import get_data_transactions as set_csv
 from read_transactions_excel import get_data_transactions as set_excel
 from currency_cod import currency_cod_transaction
-from widget import get_data
+from widget import get_date
 from descriptions import description_transaction
 from masks import get_mask_card_number
 from masks import get_mask_account
@@ -120,7 +120,7 @@ def list_date_transactions(transactions):
     """декодирование списка дат транзакций"""
     logger.info("декодирование списка дат транзакций")
     list_date = [el.get("date") for el in transactions if el.get("date")]
-    my_format_date = get_data(list_date)
+    my_format_date = get_date(list_date)
     return my_format_date
 
 

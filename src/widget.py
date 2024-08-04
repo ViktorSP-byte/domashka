@@ -1,6 +1,5 @@
 from src.masks import get_mask_account, get_mask_card_number
-from processing import data
-
+from typing import Any
 def mask_account_card(account_info: str) -> str:
     """Функция, возвращающая маску карты или счета"""
     if account_info[:4] == "Счет":
@@ -24,9 +23,13 @@ def filter_alpha_data(data_client: str):
     return alpha_data
 
 
-def get_data(data: list) -> list:
+def get_date(date: Any) -> str:
     """Функция, меняющая формат даты"""
-    result = data[8: 10] + "." + data[5:7] + "." + data[0:4]
-    return result
+    result = date[8: 10], date[5:7], date[0:4]
+    my_list = '.'.join(map(str, result))
+    return my_list
 
+if __name__ == "__main__":
+    date = "2024-03-11T02:26:18.671407"
+    print(get_date(date))
 
