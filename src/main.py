@@ -164,7 +164,7 @@ def sorted_by_date(transactions):
                 )
                 if reverse_date == "по возрастанию":
                     logger.info("выбрана сортировка по возрастанию")
-                    sort_list_states = filter_by_state(transactions, reverse=False)
+                    sort_list_states = sort_by_date(transactions)
                     return sort_list_states
                 elif reverse_date == "по убыванию":
                     logger.info("выбрана сортировка по убыванию")

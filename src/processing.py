@@ -21,5 +21,5 @@ def sort_by_date(data: list[dict], reverse: bool = True) -> list[dict]:
     return sorted_data
 
 
-# if __name__ == "__main__":
-#     print(sort_by_date(data))
+if __name__ == "__main__":
+    print(sort_by_date(data))

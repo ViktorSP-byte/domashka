@@ -24,10 +24,11 @@ def list_categories(transactions):
     )
 
 
-def categories_by_descriptions(my_list_categories):
+def categories_by_descriptions(list_trans, my_list_categories):
 
-    counted = Counter(my_list_categories)
+    counted = dict(Counter(my_list_categories))
     return counted
+
 
 
 if __name__ == "__main__":
