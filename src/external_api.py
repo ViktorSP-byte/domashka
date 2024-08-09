@@ -5,10 +5,10 @@ from dotenv import load_dotenv
 
 from src.utils import get_transactions_dictionary
 
-load_dotenv("C:/Users/RobotComp.ru/PycharmProjects/course2_homeworks/.env")
+load_dotenv(".../.env")
 
 
-path = "C:/Users/RobotComp.ru/PycharmProjects/course2_homeworks/data/operations.json"
+path = ".../data/operations.json"
 
 
 def amount_transaction(transaction_by_id):
