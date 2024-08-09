@@ -3,7 +3,7 @@ from utils import get_transactions_dictionary
 
 logger = logging.getLogger(__name__)
 file_handler = logging.FileHandler(
-    "C:/Users/RobotComp.ru/PycharmProjects/course2_homeworks/logs/currency_cod.log", encoding="utf-8"
+    "../logs/currency_cod.log", encoding="utf-8"
 )
 file_formatter = logging.Formatter(
     "%(asctime)s - %(name)s - %(levelname)s: %(message)s"

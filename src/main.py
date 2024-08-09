@@ -14,7 +14,7 @@ from widget import filter_alpha_data
 
 logger = logging.getLogger(__name__)
 file_handler = logging.FileHandler(
-    "C:/Users/RobotComp.ru/PycharmProjects/course2_homeworks/logs/main.log", encoding="utf-8"
+    ".../logs/main.log", encoding="utf-8"
 )
 file_formatter = logging.Formatter(
     "%(asctime)s - %(name)s - %(levelname)s: %(message)s"
@@ -65,15 +65,15 @@ def read_file_by_format(format_file):
     """чтение выбраного формата файла"""
     logger.info("чтение выбраного формата файла")
     if format_file == 1:
-        path = "C:/Users/RobotComp.ru/PycharmProjects/course2_homeworks/data/operations.json"
+        path = ".../data/operations.json"
         list_trans_json = set_json(path)
         return list_trans_json
     elif format_file == 2:
-        path = "C:/Users/RobotComp.ru/PycharmProjects/course2_homeworks/data/transactions.csv"
+        path = ".../data/transactions.csv"
         list_trans_csv = set_csv(path)
         return list_trans_csv
     elif format_file == 3:
-        path = "C:/Users/RobotComp.ru/PycharmProjects/course2_homeworks/data/transactions_excel.xlsx"
+        path = ".../data/transactions_excel.xlsx"
         list_trans_excel = set_excel(path)
         return list_trans_excel
 
@@ -119,36 +119,9 @@ def choose_state(list_states):
 def list_date_transactions(transactions):
     """декодирование списка дат транзакций"""
     logger.info("декодирование списка дат транзакций")
-    list_date = [el.get("date") for el in transactions if el.get("date")]
-    my_format_date = get_date(list_date)
-    return my_format_date
-
-
-def update_dates(filter_by_state, list_date):
-    """преобразование фоормата дат из отфильтрованных транзакций на формат  %d.%m.%Y"""
-    logger.info(
-        "преобразование фоормата дат из отфильтрованных транзакций на формат  %d.%m.%Y"
-    )
-    for i, transaction in enumerate(filter_by_state):
-        if i < len(list_date):
-            transaction["date"] = list_date[i]
-    return filter_by_state
-
-
-def rate_date(list_by_state):
-    """преобразование фоормата дат из отфильтрованных транзакций на формат  %Y-%m-%d"""
-    logger.info(
-        "преобразование фоормата дат из отфильтрованных транзакций на формат  %Y-%m-%d"
-    )
-    try:
-        logger.info("Преобразование дат в формат %Y-%m-%d")
-        for el in list_by_state:
-            el["date"] = datetime.strptime(el["date"], "%d.%m.%Y").strftime("%Y-%m-%d")
-
-    except Exception as e:
-        print(f"Что-то пошло не так: {e}")
-        logger.error(f"Ошибка при преобразовании даты: {e}")
-    return list_by_state
+    for transaction in transactions:
+        transaction["date"] = get_date(transaction.get("date"))
+    return transactions
 
 
 def sorted_by_date(transactions):
