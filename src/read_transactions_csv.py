@@ -1,11 +1,10 @@
 import logging
 import csv
-
 import pandas as pd
 
 logger = logging.getLogger(__name__)
 file_handler = logging.FileHandler(
-    "C:/Users/RobotComp.ru/PycharmProjects/course2_homeworks/logs/read_transactions_csv.log",
+    "../logs/read_transactions_csv.log",
     encoding="utf-8",
 )
 file_formatter = logging.Formatter(
@@ -41,6 +40,6 @@ def get_data_transactions(path):
 
 
 if __name__ == "__main__":
-    path = "C:/Users/RobotComp.ru/PycharmProjects/course2_homeworks/data/transactions.csv"
+    path = ".../data/transactions.csv"
     df_trans = get_data_transactions(path)
     print(df_trans)

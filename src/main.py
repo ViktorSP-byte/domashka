@@ -1,5 +1,5 @@
 import logging
-from datetime import datetime
+# from datetime import datetime
 from utils import get_transactions_dictionary as set_json
 from processing import filter_by_state, sort_by_date
 from read_transactions_csv import get_data_transactions as set_csv
@@ -14,7 +14,7 @@ from widget import filter_alpha_data
 
 logger = logging.getLogger(__name__)
 file_handler = logging.FileHandler(
-    ".../logs/main.log", encoding="utf-8"
+    "../logs/main.log", encoding="utf-8"
 )
 file_formatter = logging.Formatter(
     "%(asctime)s - %(name)s - %(levelname)s: %(message)s"
