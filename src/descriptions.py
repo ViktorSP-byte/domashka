@@ -44,7 +44,7 @@ def description_transaction(transactions, my_string):
 
 
 if __name__ == "__main__":
-    path = "C:/Users/RobotComp.ru/PycharmProjects/course2_homeworks/data/operations.json"
+    path = ".../data/operations.json"
     list_trans = get_transactions_dictionary(path)
     my_string = input(
         "введите слово или фразу, которые должно находиться в описании транзакции: "

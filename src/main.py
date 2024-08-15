@@ -89,6 +89,7 @@ def set_by_state(transactions):
         if type(state) is str:
             my_list_state.append(state)
     print(f"Доступные для фильтрации статусы: {', '.join(my_list_state)}")
+    # print(my_list_state)
     return my_list_state
 
 
@@ -301,7 +302,7 @@ if __name__ == "__main__":
     # print(*my_filter_by_state, sep="\n")
     my_list_date = list_date_transactions(my_filter_by_state)
     # print(my_list_date)
-    my_list_transactions_by_state = update_dates(my_filter_by_state, my_list_date)
+    my_list_transactions_by_state = cate(my_filter_by_state, my_list_date)
     # print(*my_list_transactions_by_state, sep='\n')
     my_list_norm_format_date = rate_date(my_list_transactions_by_state)
     # print(*my_list_norm_format_date, sep='\n')

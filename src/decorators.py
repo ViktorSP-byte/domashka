@@ -31,4 +31,4 @@ if __name__ == '__main__':
 
     print(my_function(1, 2))
     print(my_function(1, 2))
-    print(my_function(1, 0))
+    # print(my_function(1, 0))

@@ -49,7 +49,7 @@ def currency_cod_transaction(transactions, currency_cod):
 
 
 if __name__ == "__main__":
-    path = "C:/Users/RobotComp.ru/PycharmProjects/course2_homeworks/data/operations.json"
+    path = ".../data/operations.json"
     list_trans = get_transactions_dictionary(path)
 
     my_currency_cod = input("введите валюту транзакции RUB, USD, EUR: ")
