@@ -5,10 +5,10 @@ from dotenv import load_dotenv
 
 from src.utils import get_transactions_dictionary
 
-load_dotenv("C:/Users/RobotComp.ru/PycharmProjects/course2_homeworks/.env")
+load_dotenv(".../.env")
 
 
-path = "C:/Users/RobotComp.ru/PycharmProjects/course2_homeworks/data/operations.json"
+path = ".../data/operations.json"
 
 
 def amount_transaction(transaction_by_id):
@@ -32,7 +32,7 @@ def amount_transaction(transaction_by_id):
 
 
 if __name__ == "__main__":
-    path = "C:/Users/RobotComp.ru/PycharmProjects/course2_homeworks/data/operations.json"
+    path = "..../data/operations.json"
     transactions = get_transactions_dictionary(path)
     n = int(input("введите колличество транзакций: "))
     for i in range(n):

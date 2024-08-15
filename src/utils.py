@@ -3,7 +3,7 @@ import logging
 
 logger = logging.getLogger(__name__)
 file_handler = logging.FileHandler(
-    "C:/Users/RobotComp.ru/PycharmProjects/course2_homeworks/logs/utils.log", encoding="utf-8"
+    "../logs/utils.log", encoding="utf-8"
 )
 
 file_formatter = logging.Formatter(
@@ -30,5 +30,5 @@ def get_transactions_dictionary(file_json: str) -> list:
 
 
 if __name__ == '__main__':
-    file_json = "../data/operations.json"
+    file_json = ".../data/operations.json"
     print(get_transactions_dictionary(file_json))
